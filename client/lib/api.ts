@@ -28,7 +28,17 @@ export const api = {
 
   async getProjectBySlug(slug: string): Promise<Project | null> {
     const projects = await this.getProjects();
-    return projects.find((p) => p.slug === slug) || null;
+    const normalized = slug.toLowerCase().trim();
+    return (
+      projects.find((p) => {
+        if (p.slug === normalized) return true;
+        if (normalized === 'paperbridge' && (p.slug === 'college-pyq-management-system' || p.slug === 'paper-bridge')) return true;
+        if ((normalized === 'college-pyq-management-system' || normalized === 'paper-bridge') && p.slug === 'paperbridge') return true;
+        if (normalized === 'ecommerce-client' && p.slug === 'manoj-traders') return true;
+        if (normalized === 'manoj-traders' && p.slug === 'ecommerce-client') return true;
+        return false;
+      }) || null
+    );
   },
 
   async getServices(): Promise<Service[]> {

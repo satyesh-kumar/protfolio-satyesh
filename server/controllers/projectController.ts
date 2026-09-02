@@ -12,7 +12,17 @@ export async function getProjects(req: Request, res: Response, next: NextFunctio
 
 export async function getProjectBySlug(req: Request, res: Response, next: NextFunction) {
   try {
-    const project = await Project.findOne({ slug: req.params.slug });
+    const slug = req.params.slug.toLowerCase().trim();
+    let project = await Project.findOne({ slug });
+    if (!project) {
+      if (slug === 'paperbridge') {
+        project = await Project.findOne({ slug: { $in: ['paper-bridge', 'college-pyq-management-system'] } });
+      } else if (slug === 'ecommerce-client') {
+        project = await Project.findOne({ slug: 'manoj-traders' });
+      } else if (slug === 'manoj-traders') {
+        project = await Project.findOne({ slug: 'ecommerce-client' });
+      }
+    }
     if (!project) {
       return res.status(404).json({ success: false, message: 'Project case study not found' });
     }

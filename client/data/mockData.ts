@@ -73,50 +73,162 @@ export const mockServices: Service[] = [
 
 export const mockProjects: Project[] = [
   {
-    _id: 'proj-1',
-    title: 'College PYQ Management System',
-    slug: 'college-pyq-management-system',
-    shortDescription: 'A centralized academic resource platform with keyword search, subject/year filtering, and secure PDF upload restricted to admin users.',
-    category: 'Full Stack Web Application',
-    problem: 'Academic institutions and students face disorganized, scattered repositories for previous year question papers, making subject/year filtering and verified access difficult.',
-    solution: 'Developed a centralized academic resource platform with fast keyword search, multi-parameter subject/year filtering, and role-based Admin and Student modules.',
+    _id: 'proj-paperbridge',
+    title: 'PaperBridge — Past Papers Platform',
+    slug: 'paperbridge',
+    shortDescription: 'A full-stack academic platform designed to make past university question papers easier to discover, filter, preview, and access.',
+    category: 'Full-Stack Web Application',
+    projectType: 'Academic Resource Platform',
+    clientProject: false,
+    problem: 'University students and faculty face disorganized, scattered repositories for previous-year examination papers, making subject-level, year-wise, and semester-based academic discovery slow and friction-heavy.',
+    goal: 'Centralize academic question papers into an indexed repository with instant keyword search, year/semester filtering, and authenticated administrative document management.',
+    solution: 'Architected and deployed PaperBridge as a centralized academic resource platform with multi-criteria search filtering, responsive PDF inspection, structured MongoDB schemas, and role-guarded upload permissions for United University.',
     features: [
-      'Role-based Admin and Student access control modules',
-      'RESTful APIs with MongoDB for high-speed document storage and multi-criteria filtering',
-      'Secure PDF upload system with mime-type validation restricted to admin users',
-      'Responsive, mobile-friendly interface across desktop and mobile devices'
+      'Multi-criteria search engine indexing papers by subject name, paper code, and department',
+      'Faceted filtering system across academic year, degree program, semester, and examination type',
+      'In-browser PDF preview pipeline enabling students to inspect past exam papers without forced downloads',
+      'Role-based administrative control module with Clerk authentication for verified paper uploads',
+      'RESTful API architecture with MongoDB query optimization and mime-type document validation',
+      'Mobile-responsive academic user interface with dark and light theme adaptability'
     ],
     challenges: [
-      'Ensuring fast query times across hundreds of academic papers categorized by multiple years and subjects.',
-      'Securing administrative upload endpoints against unauthorized document submissions.'
+      'Structuring scalable NoSQL schema models capable of managing multi-department curricula across diverse examination formats.',
+      'Ensuring rapid document search and filter responsiveness without client-side lag across extensive paper archives.'
     ],
     solutions: [
-      'Built indexed MongoDB collections and optimized RESTful API route queries.',
-      'Implemented role-based authentication guarding document mutation and upload handlers.'
+      'Constructed normalized Mongoose schemas with indexed lookup tags for instant query resolution.',
+      'Implemented debounced search inputs paired with server-side query filters.'
     ],
     results: [
-      'Sub-100ms API response times across question paper queries.',
-      'Streamlined academic resource access with 80% faster search times for students.'
+      'Official academic repository and study notes vault deployed live for United University students.',
+      'Sub-100ms API response latency across question paper searches.',
+      'Zero unauthorized document upload incidents through role-based access enforcement.'
     ],
-    technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'REST API', 'JWT'],
-    coverImage: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80',
+    technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'REST API', 'Vercel'],
+    coverImage: '/projects/paperbridge/cover.png',
     gallery: [
-      'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80'
+      '/projects/paperbridge/cover.png',
+      '/projects/paperbridge/search-filter.svg',
+      '/projects/paperbridge/paper-preview.svg'
     ],
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com',
+    liveUrl: 'https://paper-bridge-pyq-mangagement-system.vercel.app/',
+    engineeringArchitecture: {
+      frontend: 'React single-page architecture built with Vite, Tailwind CSS, Playfair Display & Plus Jakarta Sans typography, and Lucide icon systems.',
+      backend: 'Node.js & Express RESTful API with structured routing, input sanitization, and CORS security policies.',
+      database: 'MongoDB document collections with compound indexes on subject code, semester, and academic year for low-latency queries.',
+      auth: 'Role-based access control protecting mutation endpoints and restricting paper uploads to verified administrators.',
+      storage: 'Cloud-hosted document delivery pipelines ensuring fast streaming of multi-page academic examination PDFs.',
+      deployment: 'Production deployment on Vercel with automated CI/CD continuous delivery.'
+    },
+    engineeringDecisions: [
+      {
+        decision: 'Compound Database Indexing on Subject Code & Academic Year',
+        rationale: 'Students frequently filter by both subject and year simultaneously; indexing these fields together cut query times to sub-100ms.'
+      },
+      {
+        decision: 'In-Browser PDF Stream Previews',
+        rationale: 'Rather than forcing downloads on mobile devices, inline previewing reduces data bandwidth and accelerates exam preparation.'
+      },
+      {
+        decision: 'Role-Guarded Document Upload Workflows',
+        rationale: 'Protects the academic integrity of the examination archive by ensuring only verified faculty and staff can upload papers.'
+      }
+    ],
+    seo: {
+      metaTitle: 'PaperBridge — Full-Stack Web Application | Satyesh Kumar',
+      metaDescription: 'PaperBridge is a full-stack academic platform designed to make past university question papers easier to discover, filter, and access.',
+      keywords: ['PaperBridge', 'United University', 'Past Papers', 'PYQ Management System', 'Full Stack Developer', 'MERN Stack'],
+      ogImage: '/projects/paperbridge/cover.png',
+      canonicalUrl: 'https://satyesh.dev/projects/paperbridge'
+    },
     featured: true,
     status: 'published',
     order: 1,
   },
   {
-    _id: 'proj-2',
+    _id: 'proj-manoj-traders',
+    title: 'Manoj Traders — E-commerce Platform',
+    slug: 'ecommerce-client',
+    shortDescription: 'Production e-commerce storefront engineered for an authentic kirana supermarket featuring catalog aisles, cart management, Clerk authentication, and bilingual UI.',
+    category: 'E-commerce / Business Web Application',
+    projectType: 'E-commerce Client Project',
+    clientProject: true,
+    problem: 'The retail grocery business required an intuitive, modern digital storefront to present organic produce, farm staples, and grocery aisles online with rapid express order flows and mobile-first responsiveness.',
+    goal: 'Build a high-performance e-commerce platform delivering instant search across supermarket aisles, real-time cart persistence, bilingual localization, and user account management.',
+    solution: 'Architected and deployed a production e-commerce application with Next.js App Router, Tailwind CSS, Clerk authentication, slide-out cart management, and order tracking systems built collaboratively for Manoj Traders.',
+    features: [
+      'Comprehensive supermarket catalog organized into distinct grocery aisles (Spices, Ghee, Oils, Basmati, Kirana)',
+      'Bilingual user experience supporting one-click toggling between English and Hindi interfaces',
+      'Persistent shopping basket and slide-out cart drawer with real-time price tallying and quantity adjustment',
+      'Live order tracking pipeline displaying real-time preparation and dispatch progress',
+      'Customer authentication and protected account profiles powered by Clerk',
+      'Instant keyword search across organic produce, flash deals, and grocery staples',
+      'Mobile-first responsive navigation bar with dedicated category drawers and bottom navigation'
+    ],
+    challenges: [
+      'Delivering sub-second responsive catalog browsing across hundreds of Kirana SKUs with high-resolution imagery on mobile devices.',
+      'Ensuring seamless localization toggling between English and Hindi without layout shifts.'
+    ],
+    solutions: [
+      'Leveraged Next.js image optimization and responsive grid layouts to maintain consistent 60fps scrolling.',
+      'Implemented centralized language context providers handling atomic label swaps smoothly.'
+    ],
+    results: [
+      'Live production e-commerce platform actively deployed and accessible at ecom-phi-dusky.vercel.app.',
+      'Full bilingual supermarket shopping experience with 24-hour express fulfillment messaging.',
+      'Verified collaborative delivery engineered by Satyesh Kumar and Shaswat Jaiswal for Manoj Traders.'
+    ],
+    technologies: ['Next.js', 'React.js', 'TypeScript', 'Tailwind CSS', 'Clerk Auth', 'Lucide Icons', 'Vercel'],
+    coverImage: '/projects/manoj-traders/cover.png',
+    gallery: [
+      '/projects/manoj-traders/cover.png',
+      '/projects/manoj-traders/storefront.svg',
+      '/projects/manoj-traders/cart-aisles.svg'
+    ],
+    liveUrl: 'https://ecom-phi-dusky.vercel.app/',
+    engineeringArchitecture: {
+      frontend: 'Next.js App Router with server-side rendered storefront components, Tailwind CSS styling, and Lucide system icons.',
+      backend: 'Modern Next.js API routes and server actions with end-to-end type safety.',
+      database: 'Structured product and order schemas optimized for rapid catalog queries and category filtering.',
+      auth: 'Clerk authentication providing secure session management, customer sign-in, and protected order views.',
+      storage: 'Cloud-optimized asset delivery for high-resolution grocery imagery and promotional banners.',
+      deployment: 'Deployed on Vercel with global edge CDN caching for sub-second page delivery across India.'
+    },
+    engineeringDecisions: [
+      {
+        decision: 'Bilingual Localization Architecture (English & Hindi)',
+        rationale: 'Enables traditional Indian Kirana shoppers and diverse local demographics to navigate aisles effortlessly in their preferred language.'
+      },
+      {
+        decision: 'Server-Side Rendering (SSR) with Next.js App Router',
+        rationale: 'Maximizes search engine discoverability for grocery keywords while providing instant initial paint times for mobile shoppers.'
+      },
+      {
+        decision: 'Client-Side Persistent Cart State',
+        rationale: 'Allows shoppers to add grocery items across aisles without page reloads or loss of basket state during network interruptions.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Manoj Traders — E-commerce Client Project | Satyesh Kumar',
+      metaDescription: 'Production e-commerce storefront engineered by Satyesh Kumar for Manoj Traders, featuring organic Kirana catalog aisles, cart management, and Clerk auth.',
+      keywords: ['Manoj Traders', 'E-commerce Client Project', 'Next.js E-commerce', 'Full Stack Developer', 'Kirana Supermarket', 'Satyesh Kumar'],
+      ogImage: '/projects/manoj-traders/cover.png',
+      canonicalUrl: 'https://satyesh.dev/projects/ecommerce-client'
+    },
+    featured: true,
+    status: 'published',
+    order: 2,
+  },
+  {
+    _id: 'proj-3',
     title: 'Career Sathi – Career Recommendation System',
     slug: 'career-sathi-recommendation-system',
     shortDescription: 'A career recommendation platform featuring 45+ assessment questions, 4 evaluation categories, and 10+ career stream recommendations.',
     category: 'Interactive Web Platform',
+    projectType: 'Recommendation Platform',
+    clientProject: false,
     problem: 'Students and learners struggle to choose suitable career paths due to lack of structured aptitude evaluation and psychometric guidance.',
+    goal: 'Provide an interactive self-assessment engine that evaluates students across key competency pillars and generates actionable career guidance.',
     solution: 'Built and deployed a career recommendation platform with 45+ questions, a fast JavaScript scoring engine, and automated PDF report generation.',
     features: [
       '45+ Assessment questions across 4 evaluation categories',
@@ -143,41 +255,6 @@ export const mockProjects: Project[] = [
     ],
     githubUrl: 'https://github.com',
     liveUrl: 'https://career-sathi-recommendation-system.vercel.app',
-    featured: true,
-    status: 'published',
-    order: 2,
-  },
-  {
-    _id: 'proj-3',
-    title: 'MERN Secure Authentication & RBAC System',
-    slug: 'mern-secure-auth-system',
-    shortDescription: 'A production-ready authentication suite with JWT, bcrypt password hashing, and role-based protected routes.',
-    category: 'Full Stack Security',
-    problem: 'Modern web applications require secure authentication workflows that prevent token tampering and unauthorized route access.',
-    solution: 'Built an end-to-end authentication system utilizing bcrypt password encryption, JWT tokens, and role-based access middleware.',
-    features: [
-      'Secure JWT authentication & token validation',
-      'Bcrypt password encryption with cryptographic salt rounds',
-      'Role-based access control (RBAC) middleware for protected endpoints',
-      'Responsive React frontend with authenticated state persistence'
-    ],
-    challenges: [
-      'Safeguarding authentication tokens and preventing unauthorized privilege escalation.'
-    ],
-    solutions: [
-      'Configured HTTP-only cookie token transmission and strict server-side role verification middleware.'
-    ],
-    results: [
-      'Zero unauthorized route leaks and sub-50ms token verification.',
-      'Reusable authentication architecture for full-stack deployments.'
-    ],
-    technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Bcrypt', 'Tailwind CSS'],
-    coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
-    ],
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com',
     featured: true,
     status: 'published',
     order: 3,

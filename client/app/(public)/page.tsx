@@ -30,7 +30,10 @@ export default async function HomePage() {
     api.getTestimonials(),
   ]);
 
-  const featuredProjects = projects.filter((p) => p.featured || p.status === 'published').slice(0, 4);
+  const featuredProjects = projects
+    .filter((p) => p.featured || p.status === 'published')
+    .sort((a, b) => (a.order || 99) - (b.order || 99))
+    .slice(0, 4);
   const featuredServices = services.slice(0, 4);
 
   return (
@@ -60,7 +63,7 @@ export default async function HomePage() {
                 SELECTED WORK
               </h2>
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-normal">
-                A selection of products and experiences I&apos;ve designed and built.
+                Real problems. Real products. Real full-stack engineering.
               </p>
             </div>
             <Link href="/projects">
@@ -75,17 +78,50 @@ export default async function HomePage() {
             {featuredProjects.map((project) => (
               <Card key={project._id} hoverable className="group flex flex-col justify-between p-6 sm:p-8 bg-white dark:bg-slate-900/80 border-slate-200/90 dark:border-slate-800">
                 <div>
-                  <div className="aspect-[16/10] w-full rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 mb-6 relative">
+                  {/* Clickable Image Preview Linking to Live Project */}
+                  <a
+                    href={project.liveUrl || `/projects/${project.slug}`}
+                    target={project.liveUrl ? '_blank' : '_self'}
+                    rel={project.liveUrl ? 'noreferrer' : undefined}
+                    className="group/img block aspect-[1.95/1] w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-200/90 dark:border-slate-800 mb-6 relative shadow-md transition-all duration-300 hover:shadow-xl hover:border-blue-500/60 cursor-pointer"
+                    title={`Open live project for ${project.title}`}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={project.coverImage || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-[1.025] transition-transform duration-500"
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top group-hover/img:scale-[1.02] transition-transform duration-500"
                     />
-                  </div>
 
-                  <div className="flex items-center gap-2 mb-3">
+                    {/* Interactive hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end justify-between p-3 sm:p-4">
+                      <span className="text-xs font-bold text-white bg-blue-600 px-3 py-1.5 rounded-lg shadow-md inline-flex items-center gap-1.5">
+                        Open Live Project <ArrowUpRight className="w-3.5 h-3.5" />
+                      </span>
+                      {project.liveUrl ? (
+                        <span className="text-[10px] sm:text-[11px] font-mono text-white/90 bg-black/70 px-2.5 py-1 rounded-md hidden xs:inline-block">
+                          {project.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                        </span>
+                      ) : null}
+                    </div>
+
+                    {project.clientProject ? (
+                      <div className="absolute top-3 left-3 z-10 pointer-events-none">
+                        <span className="px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider rounded-md bg-amber-500 text-slate-950 shadow-md">
+                          Client Project
+                        </span>
+                      </div>
+                    ) : null}
+                  </a>
+
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
                     <Badge variant="accent">{project.category}</Badge>
+                    {project.projectType ? (
+                      <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                        • {project.projectType}
+                      </span>
+                    ) : null}
                   </div>
 
                   <CardTitle className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-xl sm:text-2xl">
@@ -97,7 +133,7 @@ export default async function HomePage() {
                   </CardDescription>
 
                   <div className="flex flex-wrap gap-2 mt-5">
-                    {project.technologies.slice(0, 4).map((tech) => (
+                    {project.technologies.slice(0, 5).map((tech) => (
                       <span key={tech} className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-lg">
                         {tech}
                       </span>
@@ -105,16 +141,24 @@ export default async function HomePage() {
                   </div>
                 </div>
 
-                <CardFooter className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                    Case Study Available
-                  </span>
-                  <Link href={`/projects/${project.slug}`}>
-                    <Button size="sm" variant="outline" className="group-hover:border-blue-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 text-xs font-semibold">
-                      Read Case Study
-                      <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                    </Button>
-                  </Link>
+                <CardFooter className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <Link href={`/projects/${project.slug}`}>
+                      <Button size="sm" variant="primary" className="text-xs font-semibold">
+                        View Case Study
+                        <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                      </Button>
+                    </Link>
+                  </div>
+
+                  {project.liveUrl ? (
+                    <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                      <Button size="sm" variant="outline" className="group-hover:border-blue-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 text-xs font-semibold">
+                        Live Demo
+                        <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+                      </Button>
+                    </a>
+                  ) : null}
                 </CardFooter>
               </Card>
             ))}

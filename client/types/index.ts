@@ -4,7 +4,10 @@ export interface Project {
   slug: string;
   shortDescription: string;
   category: string;
+  projectType?: string;
+  clientProject?: boolean;
   problem: string;
+  goal?: string;
   solution: string;
   features: string[];
   challenges: string[];
@@ -16,6 +19,18 @@ export interface Project {
   videoUrl?: string;
   githubUrl?: string;
   liveUrl?: string;
+  engineeringArchitecture?: {
+    frontend?: string;
+    backend?: string;
+    database?: string;
+    auth?: string;
+    storage?: string;
+    deployment?: string;
+  };
+  engineeringDecisions?: Array<{
+    decision: string;
+    rationale: string;
+  }>;
   contentBlocks?: Array<{
     title: string;
     body: string;
@@ -24,6 +39,8 @@ export interface Project {
     metaTitle?: string;
     metaDescription?: string;
     keywords?: string[];
+    ogImage?: string;
+    canonicalUrl?: string;
   };
   featured: boolean;
   status: 'draft' | 'published';
@@ -31,6 +48,7 @@ export interface Project {
   createdAt?: string;
   updatedAt?: string;
 }
+
 
 export interface Service {
   _id: string;

@@ -5,7 +5,10 @@ export interface IProject extends Document {
   slug: string;
   shortDescription: string;
   category: string;
+  projectType?: string;
+  clientProject?: boolean;
   problem: string;
+  goal?: string;
   solution: string;
   features: string[];
   challenges: string[];
@@ -17,8 +20,26 @@ export interface IProject extends Document {
   videoUrl?: string;
   githubUrl?: string;
   liveUrl?: string;
+  engineeringArchitecture?: {
+    frontend?: string;
+    backend?: string;
+    database?: string;
+    auth?: string;
+    storage?: string;
+    deployment?: string;
+  };
+  engineeringDecisions?: Array<{
+    decision: string;
+    rationale: string;
+  }>;
   contentBlocks?: Array<{ title: string; body: string }>;
-  seo?: { metaTitle?: string; metaDescription?: string; keywords?: string[] };
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
+    ogImage?: string;
+    canonicalUrl?: string;
+  };
   featured: boolean;
   status: 'draft' | 'published';
   order: number;
@@ -32,7 +53,10 @@ const projectSchema = new Schema<IProject>(
     slug: { type: String, required: true, unique: true, trim: true, index: true },
     shortDescription: { type: String, required: true },
     category: { type: String, required: true },
+    projectType: { type: String, default: '' },
+    clientProject: { type: Boolean, default: false },
     problem: { type: String, default: '' },
+    goal: { type: String, default: '' },
     solution: { type: String, default: '' },
     features: [{ type: String }],
     challenges: [{ type: String }],
@@ -44,6 +68,20 @@ const projectSchema = new Schema<IProject>(
     videoUrl: { type: String },
     githubUrl: { type: String },
     liveUrl: { type: String },
+    engineeringArchitecture: {
+      frontend: String,
+      backend: String,
+      database: String,
+      auth: String,
+      storage: String,
+      deployment: String,
+    },
+    engineeringDecisions: [
+      {
+        decision: String,
+        rationale: String,
+      },
+    ],
     contentBlocks: [
       {
         title: String,
@@ -54,6 +92,8 @@ const projectSchema = new Schema<IProject>(
       metaTitle: String,
       metaDescription: String,
       keywords: [String],
+      ogImage: String,
+      canonicalUrl: String,
     },
     featured: { type: Boolean, default: false },
     status: { type: String, enum: ['draft', 'published'], default: 'draft' },

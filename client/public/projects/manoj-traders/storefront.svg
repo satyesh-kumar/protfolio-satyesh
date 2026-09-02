@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="mt-bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090B" />
+      <stop offset="100%" stop-color="#141418" />
+    </linearGradient>
+    <linearGradient id="amber-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#mt-bg2)" />
+
+  <!-- App Window Frame -->
+  <rect x="50" y="40" width="1100" height="670" rx="16" fill="#18181B" stroke="#27272A" stroke-width="1.5" />
+  <rect x="50" y="40" width="1100" height="48" rx="16" fill="#202024" />
+  <circle cx="80" cy="64" r="6" fill="#EF4444" />
+  <circle cx="100" cy="64" r="6" fill="#F59E0B" />
+  <circle cx="120" cy="64" r="6" fill="#10B981" />
+  <text x="600" y="70" fill="#A1A1AA" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle">Manoj Traders Supermarket — Aisles &amp; Category Directory Engine</text>
+
+  <!-- Aisles Sidebar Navigation -->
+  <rect x="80" y="110" width="280" height="570" rx="12" fill="#1F1F23" stroke="#2E2E33" stroke-width="1" />
+  <text x="105" y="150" fill="#FAFAFA" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="800">Supermarket Aisles</text>
+  
+  <!-- Aisle 1 -->
+  <rect x="100" y="175" width="240" height="48" rx="10" fill="#F59E0B" fill-opacity="0.15" stroke="#F59E0B" stroke-width="1" />
+  <text x="120" y="204" fill="#F59E0B" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">🌾 Ghee, Oils &amp; Staples</text>
+
+  <!-- Aisle 2 -->
+  <rect x="100" y="235" width="240" height="48" rx="10" fill="#26262B" />
+  <text x="120" y="264" fill="#D4D4D8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600">🍚 Aged Basmati &amp; Atta</text>
+
+  <!-- Aisle 3 -->
+  <rect x="100" y="295" width="240" height="48" rx="10" fill="#26262B" />
+  <text x="120" y="324" fill="#D4D4D8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600">🫚 Gourmet Heritage Spices</text>
+
+  <!-- Aisle 4 -->
+  <rect x="100" y="355" width="240" height="48" rx="10" fill="#26262B" />
+  <text x="120" y="384" fill="#D4D4D8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600">🥭 Farm-Fresh Fruits</text>
+
+  <!-- Aisle 5 -->
+  <rect x="100" y="415" width="240" height="48" rx="10" fill="#26262B" />
+  <text x="120" y="444" fill="#D4D4D8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600">🍪 Biscuits, Tea &amp; Kirana</text>
+
+  <!-- Express Guarantee Callout -->
+  <rect x="100" y="495" width="240" height="155" rx="12" fill="#141416" stroke="#2A2A30" stroke-width="1" />
+  <text x="120" y="525" fill="#10B981" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">24-HOUR FULFILLMENT</text>
+  <text x="120" y="550" fill="#FAFAFA" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700">Cold-Chain Guaranteed</text>
+  <text x="120" y="575" fill="#71717A" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Direct dispatched from verified regional farms with temperature-controlled shipping.</text>
+  <text x="120" y="625" fill="#F59E0B" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">Call Dispatch: 7307440594</text>
+
+  <!-- Storefront Products Layout -->
+  <g transform="translate(380, 110)">
+    <!-- Search Bar -->
+    <rect x="0" y="0" width="740" height="50" rx="12" fill="#1F1F23" stroke="#2E2E33" stroke-width="1" />
+    <text x="24" y="31" fill="#71717A" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">Search fresh atta, basmati rice, A2 ghee, organic pulses, cold-pressed oils...</text>
+    <rect x="630" y="8" width="98" height="34" rx="8" fill="url(#amber-accent)" />
+    <text x="679" y="30" fill="#09090B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" text-anchor="middle">Search</text>
+
+    <!-- Category Header -->
+    <text x="0" y="85" fill="#FAFAFA" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="900">🌾 Ghee, Oils &amp; Gourmet Staples</text>
+    <text x="740" y="85" fill="#A1A1AA" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" text-anchor="end">Sorted by: Highest Quality Organic</text>
+
+    <!-- Product Rows -->
+    <rect x="0" y="105" width="355" height="260" rx="14" fill="#1F1F23" stroke="#2D2D33" stroke-width="1" />
+    <text x="20" y="135" fill="#FAFAFA" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="800">Organic Lakadong High-Curcumin Turmeric</text>
+    <text x="20" y="155" fill="#71717A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">500g Jar • 7.5% High Curcumin Content</text>
+    <text x="20" y="185" fill="#F59E0B" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="900">₹320</text>
+    <rect x="20" y="210" width="315" height="38" rx="8" fill="#F59E0B" />
+    <text x="177" y="234" fill="#09090B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" text-anchor="middle">Add to Basket</text>
+
+    <rect x="385" y="105" width="355" height="260" rx="14" fill="#1F1F23" stroke="#2D2D33" stroke-width="1" />
+    <text x="405" y="135" fill="#FAFAFA" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="800">Himalayan Raw Unpasteurized Honey</text>
+    <text x="405" y="155" fill="#71717A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">1 kg Glass Jar • Wild Forest Flora</text>
+    <text x="405" y="185" fill="#F59E0B" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="900">₹680</text>
+    <rect x="405" y="210" width="315" height="38" rx="8" fill="#F59E0B" />
+    <text x="562" y="234" fill="#09090B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" text-anchor="middle">Add to Basket</text>
+
+    <rect x="0" y="385" width="355" height="180" rx="14" fill="#1F1F23" stroke="#2D2D33" stroke-width="1" />
+    <text x="20" y="415" fill="#FAFAFA" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="800">Ratnagiri Alphonso Mangoes</text>
+    <text x="20" y="435" fill="#71717A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">Box of 12 Hand-Picked GI Tagged</text>
+    <text x="20" y="465" fill="#F59E0B" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="900">₹1,199</text>
+    <rect x="20" y="490" width="315" height="38" rx="8" fill="#F59E0B" />
+    <text x="177" y="514" fill="#09090B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" text-anchor="middle">Add to Basket</text>
+
+    <rect x="385" y="385" width="355" height="180" rx="14" fill="#1F1F23" stroke="#2D2D33" stroke-width="1" />
+    <text x="405" y="415" fill="#FAFAFA" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="800">Organic Unpolished Toor Dal</text>
+    <text x="405" y="435" fill="#71717A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">2 kg Pack • High Protein Native Seed</text>
+    <text x="405" y="465" fill="#F59E0B" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="900">₹360</text>
+    <rect x="405" y="490" width="315" height="38" rx="8" fill="#F59E0B" />
+    <text x="562" y="514" fill="#09090B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" text-anchor="middle">Add to Basket</text>
+  </g>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="pb-bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#110F0D" />
+      <stop offset="100%" stop-color="#1B1714" />
+    </linearGradient>
+    <linearGradient id="gold-grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#F3E5AB" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#pb-bg3)" />
+
+  <!-- App Bar -->
+  <rect x="50" y="40" width="1100" height="52" rx="12" fill="#1C1815" stroke="#332A24" stroke-width="1.5" />
+  <text x="80" y="72" fill="#FAF8F5" font-family="'Playfair Display', serif" font-size="16" font-weight="700">PaperBridge</text>
+  <text x="200" y="71" fill="#887E72" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">/ B.Tech CSE / Semester 5 / Database Management Systems (2024)</text>
+  
+  <rect x="990" y="52" width="140" height="30" rx="6" fill="url(#gold-grad3)" />
+  <text x="1060" y="71" fill="#1A1614" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" text-anchor="middle">Download PDF (1.4MB)</text>
+
+  <!-- Split View: Document Viewer + Details Panel -->
+  <!-- Document Container -->
+  <rect x="50" y="110" width="760" height="600" rx="12" fill="#FAF8F5" stroke="#E5DEC9" stroke-width="2" />
+  <rect x="50" y="110" width="760" height="40" rx="12" fill="#EDE6D6" />
+  <text x="75" y="135" fill="#3D322A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Document Page 1 of 4 • United University Official Examination Paper</text>
+
+  <!-- Simulated Paper Content -->
+  <text x="430" y="195" fill="#1A1614" font-family="'Playfair Display', serif" font-size="18" font-weight="800" text-anchor="middle">UNITED UNIVERSITY, PRAYAGRAJ</text>
+  <text x="430" y="218" fill="#4A3D32" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" text-anchor="middle">FACULTY OF ENGINEERING &amp; APPLIED SCIENCES</text>
+  <text x="430" y="238" fill="#6A5A4A" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">B.TECH. COMPUTER SCIENCE &amp; ENGINEERING — SEMESTER V</text>
+  <text x="430" y="258" fill="#1A1614" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" text-anchor="middle">DATABASE MANAGEMENT SYSTEMS (CSE-501)</text>
+  
+  <line x1="90" y1="275" x2="770" y2="275" stroke="#1A1614" stroke-width="1.5" />
+  <text x="90" y="295" fill="#332A24" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">Time Allowed: 3 Hours</text>
+  <text x="770" y="295" fill="#332A24" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" text-anchor="end">Maximum Marks: 100</text>
+  <line x1="90" y1="305" x2="770" y2="305" stroke="#1A1614" stroke-width="1" />
+
+  <text x="430" y="335" fill="#1A1614" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" text-anchor="middle">SECTION A (Answer all questions. Each carries 2 marks)</text>
+  <text x="90" y="370" fill="#241E1A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">Q1. (a) Define Data Independence. Contrast physical and logical independence with examples.</text>
+  <text x="90" y="405" fill="#241E1A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">    (b) What are ACID properties in transaction processing? Explain durability guarantees.</text>
+  <text x="90" y="440" fill="#241E1A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">    (c) Differentiate between Boyce-Codd Normal Form (BCNF) and Third Normal Form (3NF).</text>
+  <text x="90" y="475" fill="#241E1A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">    (d) Explain B+ Tree indexing structures and calculate tree depth for 100,000 index keys.</text>
+
+  <text x="430" y="525" fill="#1A1614" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" text-anchor="middle">SECTION B (Answer any three questions. Each carries 10 marks)</text>
+  <text x="90" y="560" fill="#241E1A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">Q2. Construct an Entity-Relationship (ER) model for a university academic course registration</text>
+  <text x="90" y="580" fill="#241E1A" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">    system, converting all cardinality and participation constraints into relational schemas.</text>
+
+  <!-- Right Metadata / Admin Controls Sidebar -->
+  <rect x="830" y="110" width="320" height="600" rx="12" fill="#1B1613" stroke="#332A24" stroke-width="1" />
+  <text x="855" y="150" fill="#FAF8F5" font-family="'Playfair Display', serif" font-size="18" font-weight="700">Paper Metadata</text>
+  
+  <rect x="855" y="175" width="270" height="120" rx="8" fill="#241D18" stroke="#3D3026" stroke-width="1" />
+  <text x="870" y="200" fill="#887E72" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">INSTITUTION</text>
+  <text x="870" y="218" fill="#FAF8F5" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">United University, Prayagraj</text>
+  <text x="870" y="245" fill="#887E72" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">VERIFIED STATUS</text>
+  <text x="870" y="263" fill="#10B981" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">✓ Official Academic Archive</text>
+  <text x="870" y="280" fill="#887E72" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Validated by Department Admin</text>
+
+  <!-- Upload PYQ Restricted Admin Section -->
+  <text x="855" y="335" fill="#D4AF37" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">ADMIN CONTROL VAULT</text>
+  <rect x="855" y="350" width="270" height="210" rx="8" fill="#201A16" stroke="#423429" stroke-width="1" />
+  <text x="870" y="375" fill="#FAF8F5" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Role-Based PYQ Upload</text>
+  <text x="870" y="395" fill="#887E72" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Restricted to authorized faculty/admin</text>
+
+  <rect x="870" y="415" width="240" height="60" rx="6" fill="#191411" stroke="#4F3D2F" stroke-width="1" stroke-dasharray="4 4" />
+  <text x="990" y="445" fill="#C5A059" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">+ Drag &amp; Drop PDF Exam File</text>
+  <text x="990" y="460" fill="#6E6254" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" text-anchor="middle">MIME validated: application/pdf (Max 15MB)</text>
+
+  <rect x="870" y="490" width="240" height="36" rx="6" fill="#2E241E" stroke="#523E30" stroke-width="1" />
+  <text x="990" y="513" fill="#FAF8F5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" text-anchor="middle">Publish to Live Repository</text>
+</svg>

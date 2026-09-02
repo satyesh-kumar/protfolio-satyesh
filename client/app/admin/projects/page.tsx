@@ -40,7 +40,10 @@ export default function AdminProjectsPage() {
         slug: editingProject.slug || `project-${Date.now()}`,
         shortDescription: editingProject.shortDescription || '',
         category: editingProject.category || 'Full-Stack Web Application',
+        projectType: editingProject.projectType || '',
+        clientProject: editingProject.clientProject ?? false,
         problem: editingProject.problem || '',
+        goal: editingProject.goal || '',
         solution: editingProject.solution || '',
         features: editingProject.features || [],
         challenges: editingProject.challenges || [],
@@ -49,6 +52,8 @@ export default function AdminProjectsPage() {
         technologies: editingProject.technologies || ['Next.js', 'TypeScript'],
         coverImage: editingProject.coverImage || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
         gallery: editingProject.gallery || [],
+        liveUrl: editingProject.liveUrl || '',
+        githubUrl: editingProject.githubUrl || '',
         featured: editingProject.featured ?? true,
         status: editingProject.status || 'published',
         order: editingProject.order || projects.length + 1,
@@ -85,13 +90,18 @@ export default function AdminProjectsPage() {
               slug: '',
               shortDescription: '',
               category: 'Full-Stack Web Application',
+              projectType: '',
+              clientProject: false,
               problem: '',
+              goal: '',
               solution: '',
               features: ['Feature 1'],
               challenges: ['Challenge 1'],
               solutions: ['Solution 1'],
               results: ['Result 1'],
               technologies: ['Next.js', 'TypeScript', 'Express', 'MongoDB'],
+              liveUrl: '',
+              githubUrl: '',
               status: 'published',
               featured: true,
             })
@@ -122,7 +132,7 @@ export default function AdminProjectsPage() {
                   setEditingProject({
                     ...editingProject,
                     title: e.target.value,
-                    slug: e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
+                    slug: editingProject.slug || e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
                   })
                 }
               />
@@ -140,12 +150,30 @@ export default function AdminProjectsPage() {
               onChange={(e) => setEditingProject({ ...editingProject, shortDescription: e.target.value })}
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <Input
                 label="Category"
                 value={editingProject.category || ''}
                 onChange={(e) => setEditingProject({ ...editingProject, category: e.target.value })}
               />
+              <Input
+                label="Project Type / Subtitle"
+                placeholder="e.g. Academic Resource Platform"
+                value={editingProject.projectType || ''}
+                onChange={(e) => setEditingProject({ ...editingProject, projectType: e.target.value })}
+              />
+              <Select
+                label="Project Classification"
+                value={editingProject.clientProject ? 'true' : 'false'}
+                onChange={(e) => setEditingProject({ ...editingProject, clientProject: e.target.value === 'true' })}
+                options={[
+                  { value: 'false', label: 'Personal / Flagship Project' },
+                  { value: 'true', label: 'Client Project (Built for Business)' },
+                ]}
+              />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <Select
                 label="Status"
                 value={editingProject.status || 'published'}
@@ -154,6 +182,30 @@ export default function AdminProjectsPage() {
                   { value: 'published', label: 'Published' },
                   { value: 'draft', label: 'Draft' },
                 ]}
+              />
+              <Select
+                label="Featured Prominence"
+                value={editingProject.featured ? 'true' : 'false'}
+                onChange={(e) => setEditingProject({ ...editingProject, featured: e.target.value === 'true' })}
+                options={[
+                  { value: 'true', label: 'Featured on Homepage' },
+                  { value: 'false', label: 'Standard Listing' },
+                ]}
+              />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <Input
+                label="Live Application URL"
+                placeholder="https://..."
+                value={editingProject.liveUrl || ''}
+                onChange={(e) => setEditingProject({ ...editingProject, liveUrl: e.target.value })}
+              />
+              <Input
+                label="GitHub Repository (Optional / Public)"
+                placeholder="https://github.com/..."
+                value={editingProject.githubUrl || ''}
+                onChange={(e) => setEditingProject({ ...editingProject, githubUrl: e.target.value })}
               />
             </div>
 
@@ -165,6 +217,13 @@ export default function AdminProjectsPage() {
             />
 
             <Textarea
+              label="Project Goal"
+              rows={2}
+              value={editingProject.goal || ''}
+              onChange={(e) => setEditingProject({ ...editingProject, goal: e.target.value })}
+            />
+
+            <Textarea
               label="Engineering Solution"
               rows={3}
               value={editingProject.solution || ''}
@@ -172,7 +231,7 @@ export default function AdminProjectsPage() {
             />
 
             <Input
-              label="Cover Image URL (Cloudinary / External)"
+              label="Cover Image URL (Cloudinary / Local / External)"
               value={editingProject.coverImage || ''}
               onChange={(e) => setEditingProject({ ...editingProject, coverImage: e.target.value })}
             />
@@ -194,8 +253,13 @@ export default function AdminProjectsPage() {
         {projects.map((project) => (
           <Card key={project._id} className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="text-xl font-bold text-brand-text dark:text-brand-dark-text">{project.title}</h3>
+                {project.clientProject ? (
+                  <span className="px-2.5 py-0.5 text-[10px] font-black uppercase rounded bg-amber-500 text-slate-950">
+                    Client Project
+                  </span>
+                ) : null}
                 <Badge variant="accent">{project.category}</Badge>
                 <Badge variant={project.status === 'published' ? 'success' : 'outline'}>{project.status}</Badge>
               </div>
